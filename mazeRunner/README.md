@@ -36,3 +36,36 @@ direction = ["N","N","N","N","N","E","E","E","E","E"] == "Finish"
 5. If you hit any walls or go outside the maze border, you should return Dead.
 
 6. If you find yourself still in the maze after using all the moves, you should return Lost.
+
+For the Maze (let it be maze) at the top with those starting points:
+
+| Input | Output |
+| ----- | ------ |
+
+| [[1,0],
+   [2,3]], ["N"] | "Dead" |
+| [[1,0],
+   [2,3]], ["E"] | "Finish" |
+| [[0,0,3],
+   [2,1,0]
+   [0,1,2]], ["W"] | "Dead" |  
+| [[0,0,3],
+   [2,1,0]
+   [0,1,2]], ["N","E"] | "Lost" |  
+| [[0,0,3],
+   [2,1,0]
+   [0,1,2]], ["W"] | "Lost" |  
+| maze, ["N"] | "Lost" |
+| maze, ["E"] | "Dead" |
+| maze, ["N","N","N","N","N","E","E","E","E","E"] | "Finish" |
+| maze, ["N","E","E","E","E","N","N","N","N","E"] | "Finish" |
+| maze, ["N","N","N","W","W"] | "Dead" |
+
+Notes: if there is a zero in position 0 of one of the arrays then you can walk through it into the END of that array eg going West in [0,0,1,0,0,0,1] would take you in a "1" and therefore die.
+
+Since the start and end positions move, you need to check if you actually 'land' on 3 from 2.
+
+Steps
+
+- maze and directions are given as arguments
+- Return the array position of the start - find by index '2'
