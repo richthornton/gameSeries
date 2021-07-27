@@ -12,45 +12,76 @@ const mazeRunner = (maze, direction) => {
 
   // takes a direction (string) and position (array) and returns an array
   const newPosition = (direction, position) => {
-    if (direction === "E") {
-      if (position[1] === maze.length - 1) {
-        newJPosition = 0;
-      } else {
-        newJPosition = position[1] + 1;
-      }
-      return [position[0], newJPosition];
-    }
-
-    // WEST: moving one column left
-    if (direction === "W") {
-      if (position[1] === 0) {
-        newJPosition = maze.length - 1;
-      } else {
-        newJPosition = position[1] - 1;
-      }
-      return [position[0], newJPosition];
-    }
-
-    // NORTH: moving one row up
-    if (direction === "N") {
-      if (position[0] === 0) {
-        newIPosition = maze.length - 1;
-      } else {
-        newIPosition = position[0] - 1;
-      }
-      return [newIPosition, position[1]];
-    }
-
-    // SOUTH: moving one row down
-    if (direction === "S") {
-      if (position[0] === maze.length - 1) {
-        newIPosition = 0;
-      } else {
-        newIPosition = position[0] + 1;
-      }
-      return [newIPosition, position[1]];
+    switch (direction) {
+      case "E":
+        if (position[1] === maze.length - 1) {
+          newJPosition = 0;
+        } else {
+          newJPosition = position[1] + 1;
+        }
+        return [position[0], newJPosition];
+      case "W":
+        if (position[1] === 0) {
+          newJPosition = maze.length - 1;
+        } else {
+          newJPosition = position[1] - 1;
+        }
+        return [position[0], newJPosition];
+      case "N":
+        if (position[0] === 0) {
+          newIPosition = maze.length - 1;
+        } else {
+          newIPosition = position[0] - 1;
+        }
+        return [newIPosition, position[1]];
+      case "S":
+        if (position[0] === maze.length - 1) {
+          newIPosition = 0;
+        } else {
+          newIPosition = position[0] + 1;
+        }
+        return [newIPosition, position[1]];
     }
   };
+
+  // if (direction === "E") {
+  //   if (position[1] === maze.length - 1) {
+  //     newJPosition = 0;
+  //   } else {
+  //     newJPosition = position[1] + 1;
+  //   }
+  //   return [position[0], newJPosition];
+  // }
+
+  // // WEST: moving one column left
+  // if (direction === "W") {
+  //   if (position[1] === 0) {
+  //     newJPosition = maze.length - 1;
+  //   } else {
+  //     newJPosition = position[1] - 1;
+  //   }
+  //   return [position[0], newJPosition];
+  // }
+
+  // // NORTH: moving one row up
+  // if (direction === "N") {
+  //   if (position[0] === 0) {
+  //     newIPosition = maze.length - 1;
+  //   } else {
+  //     newIPosition = position[0] - 1;
+  //   }
+  //   return [newIPosition, position[1]];
+  // }
+
+  // // SOUTH: moving one row down
+  // if (direction === "S") {
+  //   if (position[0] === maze.length - 1) {
+  //     newIPosition = 0;
+  //   } else {
+  //     newIPosition = position[0] + 1;
+  //   }
+  //   return [newIPosition, position[1]];
+  // }
 
   console.log("original position of the 2", startingPosition(maze));
 
