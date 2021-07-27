@@ -2,29 +2,13 @@ const mazeRunner = (maze, direction) => {
   const isStartPoint = (element) => element == 2;
   // returns an array of original starting position
   const startingPosition = (maze) => {
-    startPoint = [];
     for (let i = 0; i < maze.length; i++) {
       startPointJ = maze[i].findIndex(isStartPoint);
       if (startPointJ > -1) {
-        startPoint.push(i);
-        startPoint.push(startPointJ);
-        break;
+        return [i, startPointJ];
       }
     }
-    return startPoint;
   };
-  // called by newPosition
-  // const edgeOfMaze = (direction, position, maze) => {
-  //   if (direction === "S" && position[0] === maze.length - 1) {
-  //     return true;
-  //   } else if (direction === "E" && position[1] === maze.length - 1) {
-  //     return true;
-  //   } else if (direction === "N" && position[0] === 0) {
-  //     return true;
-  //   } else if (direction === "W" && position[1] === 0) {
-  //     return true;
-  //   }
-  // };
 
   // takes a direction (string) and position (array) and returns an array
   const newPosition = (direction, position) => {
