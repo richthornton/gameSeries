@@ -10,8 +10,7 @@ const mazeRunner = (maze, direction) => {
     }
   });
 
-  startJPosition = startPointJ;
-  startIPosition = startPoint[0];
+  startPointI = startPoint[0];
 
   // startPoint[0] = 'i' position of starting point;
   // startPoint[1] = 'j' position of starting point;
@@ -61,11 +60,17 @@ const mazeRunner = (maze, direction) => {
 
   // SOUTH: moving one row down
   if (direction[0] === "S") {
-    if (maze[startPoint[0] + 1][startPointJ] === 0) {
+    if (startPointI === maze.length - 1) {
+      newIPosition = 0;
+    } else {
+      newIPosition = startPointI + 1;
+    }
+
+    if (maze[newIPosition][startPointJ] === 0) {
       return "Lost";
-    } else if (maze[startPoint[0] + 1][startPointJ] === 1) {
+    } else if (maze[newIPosition][startPointJ] === 1) {
       return "Dead";
-    } else if (maze[startPoint[0] + 1][startPointJ] === 3) {
+    } else if (maze[newIPosition][startPointJ] === 3) {
       return "Finish";
     }
   }
