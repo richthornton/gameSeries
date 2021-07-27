@@ -30,7 +30,10 @@ const mazeRunner = (maze, directions) => {
   const result = (maze, position) => {
     // console.log("position in result", position);
     // console.log("maze point", maze[position[0]][position[1]]);
-    if (maze[position[0]][position[1]] === 0) {
+    if (
+      maze[position[0]][position[1]] === 0 ||
+      maze[position[0]][position[1]] === 2
+    ) {
       return "Lost";
     } else if (maze[position[0]][position[1]] === 1) {
       return "Dead";
@@ -43,13 +46,14 @@ const mazeRunner = (maze, directions) => {
     if (i === 0) {
       position = startingPosition(maze);
     }
+
     position = newPosition(directions[i], position);
-    // console.log("position in for loop", position);
+    //console.log("position in for loop", position);
     if (position.includes(maze.length) || position.includes(-1)) {
       return "Dead";
     }
     outcome = result(maze, position);
-    // console.log("outcome at new position", outcome);
+    //console.log("outcome at new position", outcome);
     // console.log("i", i + 1);
     // console.log("number of directions", directions.length);
     if (outcome === "Dead" || outcome === "Finish") {

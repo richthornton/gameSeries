@@ -23,17 +23,17 @@ describe("results for a 2x2 maze", () => {
   it("Maze 1: moves one step North and returns 'Dead'", () => {
     expect(mazeRunner(maze, ["N"])).toEqual("Dead");
   });
+  it("Maze 1: moves one step W outside the border and returns 'Dead'", () => {
+    expect(mazeRunner(maze, ["W"])).toEqual("Dead");
+  });
   it("Maze 2: moves one step North and returns 'Lost'", () => {
     expect(mazeRunner(maze2, ["N"])).toEqual("Lost");
   });
   it("Maze 3: moves one step West and returns 'Dead'", () => {
     expect(mazeRunner(maze3, ["W"])).toEqual("Dead");
   });
-  it("Maze 3: moves one step East and returns 'Dead'", () => {
+  it("Maze 3: moves one step East outside the border and returns 'Dead'", () => {
     expect(mazeRunner(maze3, ["E"])).toEqual("Dead");
-  });
-  it("Maze 1: moves one step W outside the border and returns 'Dead'", () => {
-    expect(mazeRunner(maze, ["W"])).toEqual("Dead");
   });
 });
 
@@ -83,5 +83,8 @@ describe("results for a 7x7 maze", () => {
         "S",
       ])
     ).toEqual("Dead");
+  });
+  it("Returns to starting point at end of directions therefore returns Lost ", () => {
+    expect(mazeRunner(maze7x7, ["N", "N", "S", "S"])).toEqual("Lost");
   });
 });
