@@ -2,13 +2,23 @@ const mazeRunner = (maze, direction) => {
   const isStartPoint = (element) => element == 2;
 
   // cannot use a forEach loop in this situation as have to break as soon as find 2
-  for (let i = 0; i < maze.length; i++) {
-    startPointJ = maze[i].findIndex(isStartPoint);
-    if (startPointJ > -1) {
-      startPointI = i;
-      break;
+
+  const startingPosition = (maze) => {
+    startPoint = [];
+    for (let i = 0; i < maze.length; i++) {
+      startPointJ = maze[i].findIndex(isStartPoint);
+      if (startPointJ > -1) {
+        startPoint.push(i);
+        startPoint.push(startPointJ);
+        break;
+      }
     }
-  }
+    return startPoint;
+  };
+
+  //console.log(startingPosition(maze));
+  startPointI = startingPosition(maze)[0];
+  startPointJ = startingPosition(maze)[1];
   // console.log("start i", startPointI);
   // console.log("start j", startPointJ);
 
