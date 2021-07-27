@@ -44,45 +44,6 @@ const mazeRunner = (maze, direction) => {
     }
   };
 
-  // if (direction === "E") {
-  //   if (position[1] === maze.length - 1) {
-  //     newJPosition = 0;
-  //   } else {
-  //     newJPosition = position[1] + 1;
-  //   }
-  //   return [position[0], newJPosition];
-  // }
-
-  // // WEST: moving one column left
-  // if (direction === "W") {
-  //   if (position[1] === 0) {
-  //     newJPosition = maze.length - 1;
-  //   } else {
-  //     newJPosition = position[1] - 1;
-  //   }
-  //   return [position[0], newJPosition];
-  // }
-
-  // // NORTH: moving one row up
-  // if (direction === "N") {
-  //   if (position[0] === 0) {
-  //     newIPosition = maze.length - 1;
-  //   } else {
-  //     newIPosition = position[0] - 1;
-  //   }
-  //   return [newIPosition, position[1]];
-  // }
-
-  // // SOUTH: moving one row down
-  // if (direction === "S") {
-  //   if (position[0] === maze.length - 1) {
-  //     newIPosition = 0;
-  //   } else {
-  //     newIPosition = position[0] + 1;
-  //   }
-  //   return [newIPosition, position[1]];
-  // }
-
   console.log("original position of the 2", startingPosition(maze));
 
   const result = (maze, position) => {
@@ -98,6 +59,15 @@ const mazeRunner = (maze, direction) => {
     }
   };
 
+  const isGameOver = (outcome, directionNumber) => {
+    if (outcome === "Dead" || outcome === "Finish") {
+      return outcome;
+    }
+    if (outcome === "Lost" && direction.length === directionNumber) {
+      return "Lost";
+    }
+  };
+
   for (let i = 0; i < direction.length; i++) {
     if (i === 0) {
       position = startingPosition(maze);
@@ -106,12 +76,8 @@ const mazeRunner = (maze, direction) => {
     console.log("position in for loop", position);
     outcome = result(maze, position);
     console.log("outcome at new position", outcome);
-
-    if (outcome === "Dead" || outcome === "Finish") {
-      return outcome;
-    }
-    if (outcome === "Lost" && direction.length === i + 1) {
-      return "Lost";
+    if (isGameOver(outcome, i + 1) != undefined) {
+      return isGameOver(outcome, i + 1);
     }
   }
 };
