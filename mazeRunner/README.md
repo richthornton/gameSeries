@@ -47,14 +47,14 @@ For the Maze (let it be maze) at the top with those starting points:
 | [[1,0],
    [2,3]], ["E"] | "Finish" |
 | [[0,0,3],
-   [2,1,0]
-   [0,1,2]], ["W"] | "Dead" |  
+   [0,1,0],
+   [2,1,0]], ["W"] | "Lost" |  
 | [[0,0,3],
-   [2,1,0]
-   [0,1,2]], ["N","E"] | "Lost" |  
+   [0,1,0],
+   [2,1,0]], ["N","N"] | "Lost" |  
 | [[0,0,3],
-   [2,1,0]
-   [0,1,2]], ["W"] | "Lost" |  
+   [0,1,0],
+   [2,1,0]], ["W"] | "Lost" |  
 | maze, ["N"] | "Lost" |
 | maze, ["E"] | "Dead" |
 | maze, ["N","N","N","N","N","E","E","E","E","E"] | "Finish" |
@@ -69,3 +69,12 @@ Steps
 
 - maze and directions are given as arguments
 - Return the array position of the start - find by index '2'
+
+- Go through the direction array
+- If the instruction = N, add one to the Y position of the starting point
+- Check what this element is:
+  if it's 0, you can keep going / return lost
+  if it's 1, return "dead"
+  if it's 3, return "finish"
+
+PICK UP PONT \_ just found where the start point is CHANGE IR
