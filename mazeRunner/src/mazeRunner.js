@@ -2,26 +2,16 @@ const mazeRunner = (maze, direction) => {
   const isStartPoint = (element) => element == 2;
 
   // cannot use a forEach loop in this situation as have to break as soon as find 2
-
   for (let i = 0; i < maze.length; i++) {
-    // tartPoint = [];
     startPointJ = maze[i].findIndex(isStartPoint);
-    // console.log("row i", i);
-    // console.log("column j", startPointJ);
     if (startPointJ > -1) {
       startPointI = i;
-      // startPoint.push(i);
-      // startPoint.push(startPointJ);
       break;
     }
   }
+  // console.log("start i", startPointI);
+  // console.log("start j", startPointJ);
 
-  // console.log(startPoint);
-
-  // startPointI = startPoint[0];
-
-  console.log("start i", startPointI);
-  console.log("start j", startPointJ);
   // EAST: moving one column right
   if (direction[0] === "E") {
     // check if end of array
@@ -31,11 +21,11 @@ const mazeRunner = (maze, direction) => {
       newJPosition = startPointJ + 1;
     }
 
-    if (maze[startPoint[0]][newJPosition] === 0) {
+    if (maze[startPointI][newJPosition] === 0) {
       return "Lost";
-    } else if (maze[startPoint[0]][newJPosition] === 1) {
+    } else if (maze[startPointI][newJPosition] === 1) {
       return "Dead";
-    } else if (maze[startPoint[0]][newJPosition] === 3) {
+    } else if (maze[startPointI][newJPosition] === 3) {
       return "Finish";
     }
   }
@@ -51,11 +41,11 @@ const mazeRunner = (maze, direction) => {
 
     // console.log("new J", newJPosition);
 
-    if (maze[startPoint[0]][newJPosition] === 0) {
+    if (maze[startPointI][newJPosition] === 0) {
       return "Lost";
-    } else if (maze[startPoint[0]][newJPosition] === 1) {
+    } else if (maze[startPointI][newJPosition] === 1) {
       return "Dead";
-    } else if (maze[startPoint[0]][newJPosition] === 3) {
+    } else if (maze[startPointI][newJPosition] === 3) {
       return "Finish";
     }
   }
@@ -68,7 +58,7 @@ const mazeRunner = (maze, direction) => {
       newIPosition = startPointI - 1;
     }
 
-    console.log("new I", newIPosition);
+    //console.log("new I", newIPosition);
 
     if (maze[newIPosition][startPointJ] === 0) {
       return "Lost";
