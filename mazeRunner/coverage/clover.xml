@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1627397469145" clover="3.2.0">
-  <project timestamp="1627397469145" name="All files">
+<coverage generated="1627397688938" clover="3.2.0">
+  <project timestamp="1627397688938" name="All files">
     <metrics statements="52" coveredstatements="51" conditionals="40" coveredconditionals="37" methods="5" coveredmethods="5" elements="97" coveredelements="93" complexity="0" loc="52" ncloc="52" packages="1" files="1" classes="1"/>
     <file name="mazeRunner.js" path="/Users/floradavies/Projects/gameSeries/mazeRunner/src/mazeRunner.js">
       <metrics statements="52" coveredstatements="51" conditionals="40" coveredconditionals="37" methods="5" coveredmethods="5"/>
@@ -36,26 +36,26 @@
       <line num="52" count="5" type="cond" truecount="4" falsecount="0"/>
       <line num="53" count="1" type="stmt"/>
       <line num="58" count="8" type="cond" truecount="2" falsecount="0"/>
-      <line num="60" count="2" type="cond" truecount="2" falsecount="0"/>
-      <line num="61" count="1" type="stmt"/>
-      <line num="63" count="1" type="stmt"/>
-      <line num="66" count="2" type="stmt"/>
-      <line num="70" count="6" type="cond" truecount="2" falsecount="0"/>
-      <line num="72" count="2" type="cond" truecount="2" falsecount="0"/>
-      <line num="73" count="1" type="stmt"/>
-      <line num="75" count="1" type="stmt"/>
-      <line num="78" count="2" type="stmt"/>
-      <line num="82" count="4" type="cond" truecount="2" falsecount="0"/>
-      <line num="84" count="3" type="cond" truecount="2" falsecount="0"/>
-      <line num="85" count="1" type="stmt"/>
-      <line num="87" count="2" type="stmt"/>
-      <line num="89" count="3" type="stmt"/>
-      <line num="93" count="1" type="cond" truecount="1" falsecount="1"/>
-      <line num="95" count="1" type="cond" truecount="1" falsecount="1"/>
-      <line num="96" count="1" type="stmt"/>
-      <line num="98" count="0" type="stmt"/>
-      <line num="101" count="1" type="stmt"/>
-      <line num="105" count="1" type="stmt"/>
+      <line num="59" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="60" count="1" type="stmt"/>
+      <line num="62" count="1" type="stmt"/>
+      <line num="64" count="2" type="stmt"/>
+      <line num="68" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="69" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="70" count="1" type="stmt"/>
+      <line num="72" count="1" type="stmt"/>
+      <line num="75" count="2" type="stmt"/>
+      <line num="79" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="80" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="81" count="1" type="stmt"/>
+      <line num="83" count="2" type="stmt"/>
+      <line num="85" count="3" type="stmt"/>
+      <line num="89" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="90" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="91" count="1" type="stmt"/>
+      <line num="93" count="0" type="stmt"/>
+      <line num="95" count="1" type="stmt"/>
+      <line num="99" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
