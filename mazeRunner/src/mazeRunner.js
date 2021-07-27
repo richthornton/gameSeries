@@ -22,6 +22,23 @@ const mazeRunner = (maze, direction) => {
   // console.log("start i", startPointI);
   // console.log("start j", startPointJ);
 
+  const directions = {
+    N: 1,
+    S: -1,
+    E: 1,
+    W: -1,
+  };
+
+  const result = (i, j) => {
+    if (maze[i][j] === 0) {
+      return "Lost";
+    } else if (maze[i][j] === 1) {
+      return "Dead";
+    } else if (maze[i][j] === 3) {
+      return "Finish";
+    }
+  };
+
   // EAST: moving one column right
   if (direction[0] === "E") {
     // check if end of array
@@ -31,13 +48,14 @@ const mazeRunner = (maze, direction) => {
       newJPosition = startPointJ + 1;
     }
 
-    if (maze[startPointI][newJPosition] === 0) {
-      return "Lost";
-    } else if (maze[startPointI][newJPosition] === 1) {
-      return "Dead";
-    } else if (maze[startPointI][newJPosition] === 3) {
-      return "Finish";
-    }
+    return result(startPointI, newJPosition);
+    // if (maze[startPointI][newJPosition] === 0) {
+    //   return "Lost";
+    // } else if (maze[startPointI][newJPosition] === 1) {
+    //   return "Dead";
+    // } else if (maze[startPointI][newJPosition] === 3) {
+    //   return "Finish";
+    // }
   }
 
   // WEST: moving one column left
@@ -49,15 +67,14 @@ const mazeRunner = (maze, direction) => {
       newJPosition = startPointJ - 1;
     }
 
-    // console.log("new J", newJPosition);
-
-    if (maze[startPointI][newJPosition] === 0) {
-      return "Lost";
-    } else if (maze[startPointI][newJPosition] === 1) {
-      return "Dead";
-    } else if (maze[startPointI][newJPosition] === 3) {
-      return "Finish";
-    }
+    return result(startPointI, newJPosition);
+    // if (maze[startPointI][newJPosition] === 0) {
+    //   return "Lost";
+    // } else if (maze[startPointI][newJPosition] === 1) {
+    //   return "Dead";
+    // } else if (maze[startPointI][newJPosition] === 3) {
+    //   return "Finish";
+    // }
   }
   // NORTH: moving one row up
   if (direction[0] === "N") {
@@ -68,15 +85,14 @@ const mazeRunner = (maze, direction) => {
       newIPosition = startPointI - 1;
     }
 
-    //console.log("new I", newIPosition);
-
-    if (maze[newIPosition][startPointJ] === 0) {
-      return "Lost";
-    } else if (maze[newIPosition][startPointJ] === 1) {
-      return "Dead";
-    } else if (maze[newIPosition][startPointJ] === 3) {
-      return "Finish";
-    }
+    return result(newIPosition, startPointJ);
+    // if (maze[newIPosition][startPointJ] === 0) {
+    //   return "Lost";
+    // } else if (maze[newIPosition][startPointJ] === 1) {
+    //   return "Dead";
+    // } else if (maze[newIPosition][startPointJ] === 3) {
+    //   return "Finish";
+    // }
   }
 
   // SOUTH: moving one row down
@@ -88,13 +104,14 @@ const mazeRunner = (maze, direction) => {
       newIPosition = startPointI + 1;
     }
 
-    if (maze[newIPosition][startPointJ] === 0) {
-      return "Lost";
-    } else if (maze[newIPosition][startPointJ] === 1) {
-      return "Dead";
-    } else if (maze[newIPosition][startPointJ] === 3) {
-      return "Finish";
-    }
+    return result(newIPosition, startPointJ);
+    // if (maze[newIPosition][startPointJ] === 0) {
+    //   return "Lost";
+    // } else if (maze[newIPosition][startPointJ] === 1) {
+    //   return "Dead";
+    // } else if (maze[newIPosition][startPointJ] === 3) {
+    //   return "Finish";
+    // }
   }
 };
 
