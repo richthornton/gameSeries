@@ -3,28 +3,28 @@ const mazeRunner = (maze, direction) => {
 
   maze.forEach((element, index) => {
     startPoint = [];
-    startPointX = element.findIndex(isStartPoint);
+    startPointJ = element.findIndex(isStartPoint);
 
-    if (startPointX > -1) {
-      startPoint.push(startPointX);
+    if (startPointJ > -1) {
+      startPoint.push(startPointJ);
       startPoint.push(index);
     }
   });
 
-  console.log("position of 2", startPoint);
+  //console.log("position of 2", startPoint);
 
   // startPoint[0] = 'x' position of starting point;
   // startPoint[1] = 'y' position of starting point;
+  if (direction[0] === "W") {
+    if (maze[startPoint[1]][startPointJ - 1] === 1) {
+      return "Dead";
+    }
+  }
 
   if (direction[0] === "N") {
-    // console.log(
-    //   "moving 1 north coordinates",
-    //   (newCoordinates = [newMoveY, startPointX])
-    // );
-    // console.log("maze index", maze[newMoveY][startPointX]);
-    if (maze[startPoint[1] - 1][startPointX] === 0) {
+    if (maze[startPoint[1] - 1][startPointJ] === 0) {
       return "Lost";
-    } else if (maze[startPoint[1] - 1][startPointX] === 1) {
+    } else if (maze[startPoint[1] - 1][startPointJ] === 1) {
       return "Dead";
     }
   }

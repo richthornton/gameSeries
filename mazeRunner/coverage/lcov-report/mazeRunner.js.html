@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>19/19</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.5% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/8</span>
+                <span class='fraction'>10/12</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/16</span>
+                <span class='fraction'>18/18</span>
             </div>
         
             
@@ -92,29 +92,29 @@
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -130,28 +130,28 @@
 &nbsp;
   maze.forEach((element, index) =&gt; {
     startPoint = [];
-    startPointX = element.findIndex(isStartPoint);
+    startPointJ = element.findIndex(isStartPoint);
 &nbsp;
-    if (startPointX &gt; -1) {
-      startPoint.push(startPointX);
+    if (startPointJ &gt; -1) {
+      startPoint.push(startPointJ);
       startPoint.push(index);
     }
   });
 &nbsp;
-  console.log("position of 2", startPoint);
+  //console.log("position of 2", startPoint);
 &nbsp;
   // startPoint[0] = 'x' position of starting point;
   // startPoint[1] = 'y' position of starting point;
+  if (direction[0] === "W") {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (maze[startPoint[1]][startPointJ - 1] === 1) {
+      return "Dead";
+    }
+  }
 &nbsp;
   if (direction[0] === "N") {
-    // console.log(
-    //   "moving 1 north coordinates",
-    //   (newCoordinates = [newMoveY, startPointX])
-    // );
-    // console.log("maze index", maze[newMoveY][startPointX]);
-    if (maze[startPoint[1] - 1][startPointX] === 0) {
+    if (maze[startPoint[1] - 1][startPointJ] === 0) {
       return "Lost";
-    } else <span class="missing-if-branch" title="else path not taken" >E</span>if (maze[startPoint[1] - 1][startPointX] === 1) {
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>if (maze[startPoint[1] - 1][startPointJ] === 1) {
       return "Dead";
     }
   }
@@ -166,7 +166,7 @@ module.exports = mazeRunner;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Jul 27 2021 12:20:50 GMT+0100 (British Summer Time)
+                at Tue Jul 27 2021 12:34:09 GMT+0100 (British Summer Time)
             </div>
         </div>
         <script src="prettify.js"></script>
