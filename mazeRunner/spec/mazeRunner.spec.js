@@ -32,6 +32,9 @@ describe("results for a 2x2 maze", () => {
   it("Maze 3: moves one step East and returns 'Dead'", () => {
     expect(mazeRunner(maze3, ["E"])).toEqual("Dead");
   });
+  it("Maze 1: moves one step W outside the border and returns 'Dead'", () => {
+    expect(mazeRunner(maze, ["W"])).toEqual("Dead");
+  });
 });
 
 describe("results for a 3x3 maze", () => {
