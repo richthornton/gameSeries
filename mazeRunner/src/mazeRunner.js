@@ -19,6 +19,8 @@ const mazeRunner = (maze, direction) => {
   //console.log(startingPosition(maze));
   startPointI = startingPosition(maze)[0];
   startPointJ = startingPosition(maze)[1];
+
+  position = [startingPosition(maze)[0], startingPosition(maze)[1]];
   // console.log("start i", startPointI);
   // console.log("start j", startPointJ);
 
@@ -39,64 +41,56 @@ const mazeRunner = (maze, direction) => {
     }
   };
 
+  //just want this to return true
+  const edgeOfMaze = (direction, position) => {
+    if (direction === "S" && position[0] === maze.length - 1) {
+      return true;
+    } else if (direction === "E" && position[1] === maze.length - 1) {
+      return true;
+    } else if (direction === "N" && position[0] === 0) {
+      return true;
+    } else if (direction === "W" && position[1] === 0) {
+      return true;
+    }
+  };
+
   // EAST: moving one column right
   if (direction[0] === "E") {
     // check if end of array
-    if (startPointJ === maze.length - 1) {
+    if (edgeOfMaze(direction[0], position)) {
       newJPosition = 0;
     } else {
       newJPosition = startPointJ + 1;
     }
 
     return result(startPointI, newJPosition);
-    // if (maze[startPointI][newJPosition] === 0) {
-    //   return "Lost";
-    // } else if (maze[startPointI][newJPosition] === 1) {
-    //   return "Dead";
-    // } else if (maze[startPointI][newJPosition] === 3) {
-    //   return "Finish";
-    // }
   }
 
   // WEST: moving one column left
   if (direction[0] === "W") {
     // check if end of array
-    if (startPointJ === 0) {
+    if (edgeOfMaze(direction[0], position)) {
       newJPosition = maze.length - 1;
     } else {
       newJPosition = startPointJ - 1;
     }
 
     return result(startPointI, newJPosition);
-    // if (maze[startPointI][newJPosition] === 0) {
-    //   return "Lost";
-    // } else if (maze[startPointI][newJPosition] === 1) {
-    //   return "Dead";
-    // } else if (maze[startPointI][newJPosition] === 3) {
-    //   return "Finish";
-    // }
   }
+
   // NORTH: moving one row up
   if (direction[0] === "N") {
     // check if end of array
-    if (startPointI === 0) {
+    if (edgeOfMaze(direction[0], position)) {
       newIPosition = maze.length - 1;
     } else {
       newIPosition = startPointI - 1;
     }
-
     return result(newIPosition, startPointJ);
-    // if (maze[newIPosition][startPointJ] === 0) {
-    //   return "Lost";
-    // } else if (maze[newIPosition][startPointJ] === 1) {
-    //   return "Dead";
-    // } else if (maze[newIPosition][startPointJ] === 3) {
-    //   return "Finish";
-    // }
   }
 
   // SOUTH: moving one row down
-  if (direction[0] === "S") {
+  if (edgeOfMaze(direction[0], position)) {
     // check if end of array
     if (startPointI === maze.length - 1) {
       newIPosition = 0;
@@ -105,13 +99,6 @@ const mazeRunner = (maze, direction) => {
     }
 
     return result(newIPosition, startPointJ);
-    // if (maze[newIPosition][startPointJ] === 0) {
-    //   return "Lost";
-    // } else if (maze[newIPosition][startPointJ] === 1) {
-    //   return "Dead";
-    // } else if (maze[newIPosition][startPointJ] === 3) {
-    //   return "Finish";
-    // }
   }
 };
 
