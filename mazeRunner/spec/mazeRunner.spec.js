@@ -43,13 +43,13 @@ describe("results for a 2x2 maze", () => {
   });
 });
 
-// describe("results for a 3x3 maze", () => {
-//   const maze = [
-//     [0, 0, 3],
-//     [0, 1, 0],
-//     [2, 1, 0],
-//   ];
-//   it("moves one step East and returns 'Finish'", () => {
-//     expect(mazeRunner(maze, ["E"])).toEqual("Finish");
-//   });
-// });
+describe("results for a 3x3 maze", () => {
+  const maze3x3 = [
+    [1, 0, 0],
+    [1, 0, 3],
+    [0, 2, 0],
+  ];
+  it.only("Maze 1: moves one step East and one step North and returns 'Finish'", () => {
+    expect(mazeRunner(maze3x3, ["E", "N"])).toEqual("Finish");
+  });
+});

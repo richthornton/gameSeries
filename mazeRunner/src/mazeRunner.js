@@ -1,8 +1,6 @@
 const mazeRunner = (maze, direction) => {
   const isStartPoint = (element) => element == 2;
-
-  // cannot use a forEach loop in this situation as have to break as soon as find 2
-
+  // returns an array of original starting position
   const startingPosition = (maze) => {
     startPoint = [];
     for (let i = 0; i < maze.length; i++) {
@@ -15,33 +13,7 @@ const mazeRunner = (maze, direction) => {
     }
     return startPoint;
   };
-
-  //console.log(startingPosition(maze));
-  startPointI = startingPosition(maze)[0];
-  startPointJ = startingPosition(maze)[1];
-
-  position = [startingPosition(maze)[0], startingPosition(maze)[1]];
-  // console.log("start i", startPointI);
-  // console.log("start j", startPointJ);
-
-  const directions = {
-    N: 1,
-    S: -1,
-    E: 1,
-    W: -1,
-  };
-
-  const result = (i, j) => {
-    if (maze[i][j] === 0) {
-      return "Lost";
-    } else if (maze[i][j] === 1) {
-      return "Dead";
-    } else if (maze[i][j] === 3) {
-      return "Finish";
-    }
-  };
-
-  //just want this to return true
+  // called by newPosition
   const edgeOfMaze = (direction, position, maze) => {
     if (direction === "S" && position[0] === maze.length - 1) {
       return true;
@@ -54,45 +26,78 @@ const mazeRunner = (maze, direction) => {
     }
   };
 
-  // EAST: moving one column right
-  if (direction[0] === "E") {
-    if (edgeOfMaze(direction[0], position, maze)) {
-      newJPosition = 0;
-    } else {
-      newJPosition = startPointJ + 1;
-    }
-    return result(startPointI, newJPosition);
-  }
-
-  // WEST: moving one column left
-  if (direction[0] === "W") {
-    if (edgeOfMaze(direction[0], position, maze)) {
-      newJPosition = maze.length - 1;
-    } else {
-      newJPosition = startPointJ - 1;
+  // takes a direction (string) and position (array) and returns an array
+  const newPosition = (direction, position) => {
+    if (direction === "E") {
+      if (edgeOfMaze(direction, position, maze)) {
+        newJPosition = 0;
+      } else {
+        newJPosition = position[1] + 1;
+      }
+      return [position[0], newJPosition];
     }
 
-    return result(startPointI, newJPosition);
-  }
-
-  // NORTH: moving one row up
-  if (direction[0] === "N") {
-    if (edgeOfMaze(direction[0], position, maze)) {
-      newIPosition = maze.length - 1;
-    } else {
-      newIPosition = startPointI - 1;
+    // WEST: moving one column left
+    if (direction === "W") {
+      if (edgeOfMaze(direction, position, maze)) {
+        newJPosition = maze.length - 1;
+      } else {
+        newJPosition = position[1] - 1;
+      }
+      return [position[0], newJPosition];
     }
-    return result(newIPosition, startPointJ);
-  }
 
-  // SOUTH: moving one row down
-  if (edgeOfMaze(direction[0], position, maze)) {
-    if (startPointI === maze.length - 1) {
-      newIPosition = 0;
-    } else {
-      newIPosition = startPointI + 1;
+    // NORTH: moving one row up
+    if (direction === "N") {
+      if (edgeOfMaze(direction, position, maze)) {
+        newIPosition = maze.length - 1;
+      } else {
+        newIPosition = position[0] - 1;
+      }
+      return [newIPosition, position[1]];
     }
-    return result(newIPosition, startPointJ);
+
+    // SOUTH: moving one row down
+    if (direction === "S") {
+      if (edgeOfMaze(direction, position, maze)) {
+        newIPosition = 0;
+      } else {
+        newIPosition = position[0] + 1;
+      }
+      return [newIPosition, position[1]];
+    }
+  };
+
+  console.log("original position of the 2", startingPosition(maze));
+
+  const result = (maze, position) => {
+    console.log("position in result", position);
+    console.log("maze point", maze[position[0]][position[1]]);
+
+    if (maze[position[0]][position[1]] === 0) {
+      return "Lost";
+    } else if (maze[position[0]][position[1]] === 1) {
+      return "Dead";
+    } else if (maze[position[0]][position[1]] === 3) {
+      return "Finish";
+    }
+  };
+
+  for (let i = 0; i < direction.length; i++) {
+    if (i === 0) {
+      position = startingPosition(maze);
+    }
+    position = newPosition(direction[i], position);
+    console.log("position in for loop", position);
+    outcome = result(maze, position);
+    console.log("outcome at new position", outcome);
+
+    if (outcome === "Dead" || outcome === "Finish") {
+      return outcome;
+    }
+    if (outcome === "Lost" && direction.length === i + 1) {
+      return "Lost";
+    }
   }
 };
 
