@@ -14,22 +14,22 @@ const mazeRunner = (maze, direction) => {
     return startPoint;
   };
   // called by newPosition
-  const edgeOfMaze = (direction, position, maze) => {
-    if (direction === "S" && position[0] === maze.length - 1) {
-      return true;
-    } else if (direction === "E" && position[1] === maze.length - 1) {
-      return true;
-    } else if (direction === "N" && position[0] === 0) {
-      return true;
-    } else if (direction === "W" && position[1] === 0) {
-      return true;
-    }
-  };
+  // const edgeOfMaze = (direction, position, maze) => {
+  //   if (direction === "S" && position[0] === maze.length - 1) {
+  //     return true;
+  //   } else if (direction === "E" && position[1] === maze.length - 1) {
+  //     return true;
+  //   } else if (direction === "N" && position[0] === 0) {
+  //     return true;
+  //   } else if (direction === "W" && position[1] === 0) {
+  //     return true;
+  //   }
+  // };
 
   // takes a direction (string) and position (array) and returns an array
   const newPosition = (direction, position) => {
     if (direction === "E") {
-      if (edgeOfMaze(direction, position, maze)) {
+      if (position[1] === maze.length - 1) {
         newJPosition = 0;
       } else {
         newJPosition = position[1] + 1;
@@ -39,7 +39,7 @@ const mazeRunner = (maze, direction) => {
 
     // WEST: moving one column left
     if (direction === "W") {
-      if (edgeOfMaze(direction, position, maze)) {
+      if (position[1] === 0) {
         newJPosition = maze.length - 1;
       } else {
         newJPosition = position[1] - 1;
@@ -49,7 +49,7 @@ const mazeRunner = (maze, direction) => {
 
     // NORTH: moving one row up
     if (direction === "N") {
-      if (edgeOfMaze(direction, position, maze)) {
+      if (position[0] === 0) {
         newIPosition = maze.length - 1;
       } else {
         newIPosition = position[0] - 1;
@@ -59,7 +59,7 @@ const mazeRunner = (maze, direction) => {
 
     // SOUTH: moving one row down
     if (direction === "S") {
-      if (edgeOfMaze(direction, position, maze)) {
+      if (position[0] === maze.length - 1) {
         newIPosition = 0;
       } else {
         newIPosition = position[0] + 1;

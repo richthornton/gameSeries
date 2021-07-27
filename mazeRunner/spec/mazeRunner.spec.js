@@ -49,7 +49,11 @@ describe("results for a 3x3 maze", () => {
     [1, 0, 3],
     [0, 2, 0],
   ];
-  it.only("Maze 1: moves one step East and one step North and returns 'Finish'", () => {
+  it("Maze 1: moves one step East and one step North and returns 'Finish'", () => {
     expect(mazeRunner(maze3x3, ["E", "N"])).toEqual("Finish");
+  });
+
+  it("Maze 1: finishes the directions before reached the finished so returns 'Lost'", () => {
+    expect(mazeRunner(maze3x3, ["N", "N", "E"])).toEqual("Lost");
   });
 });
