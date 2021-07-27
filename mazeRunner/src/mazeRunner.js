@@ -6,29 +6,57 @@ const mazeRunner = (maze, direction) => {
     startPointJ = element.findIndex(isStartPoint);
 
     if (startPointJ > -1) {
-      startPoint.push(startPointJ);
       startPoint.push(index);
+      startPoint.push(startPointJ);
     }
   });
+  // startPoint[0] = 'i' position of starting point;
+  // startPoint[1] = 'j' position of starting point;
 
-  //console.log("position of 2", startPoint);
+  console.log(startPoint);
 
-  // startPoint[0] = 'x' position of starting point;
-  // startPoint[1] = 'y' position of starting point;
-  if (direction[0] === "W") {
-    if (maze[startPoint[1]][startPointJ - 1] === 1) {
-      return "Dead";
-    }
-  }
-
-  if (direction[0] === "N") {
-    if (maze[startPoint[1] - 1][startPointJ] === 0) {
+  // EAST: moving one column right
+  if (direction[0] === "E") {
+    if (maze[startPoint[0]][startPointJ + 1] === 0) {
       return "Lost";
-    } else if (maze[startPoint[1] - 1][startPointJ] === 1) {
+    } else if (maze[startPoint[0]][startPointJ + 1] === 1) {
       return "Dead";
+    } else if (maze[startPoint[0]][startPointJ + 1] === 3) {
+      return "Finish";
     }
   }
-  return "Finish";
+
+  // WEST: moving one column left
+  if (direction[0] === "W") {
+    if (maze[startPoint[0]][startPointJ - 1] === 0) {
+      return "Lost";
+    } else if (maze[startPoint[0]][startPointJ - 1] === 1) {
+      return "Dead";
+    } else if (maze[startPoint[0]][startPointJ - 1] === 3) {
+      return "Finish";
+    }
+  }
+  // NORTH: moving one row up
+  if (direction[0] === "N") {
+    if (maze[startPoint[0] - 1][startPointJ] === 0) {
+      return "Lost";
+    } else if (maze[startPoint[0] - 1][startPointJ] === 1) {
+      return "Dead";
+    } else if (maze[startPoint[0] - 1][startPointJ] === 3) {
+      return "Finish";
+    }
+  }
+
+  // SOUTH: moving one row down
+  if (direction[0] === "S") {
+    if (maze[startPoint[0] + 1][startPointJ] === 0) {
+      return "Lost";
+    } else if (maze[startPoint[0] + 1][startPointJ] === 1) {
+      return "Dead";
+    } else if (maze[startPoint[0] + 1][startPointJ] === 3) {
+      return "Finish";
+    }
+  }
 };
 
 module.exports = mazeRunner;
