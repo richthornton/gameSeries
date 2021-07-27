@@ -32,15 +32,6 @@ describe("results for a 2x2 maze", () => {
   it("Maze 3: moves one step East and returns 'Dead'", () => {
     expect(mazeRunner(maze3, ["E"])).toEqual("Dead");
   });
-  it("Maze 3: moves one step South and returns 'Finish'", () => {
-    expect(mazeRunner(maze3, ["S"])).toEqual("Finish");
-  });
-  it("Maze 1: moves one step West and returns 'Finish'", () => {
-    expect(mazeRunner(maze, ["W"])).toEqual("Finish");
-  });
-  it("Maze 4: moves one step North and returns 'Finish'", () => {
-    expect(mazeRunner(maze4, ["N"])).toEqual("Finish");
-  });
 });
 
 describe("results for a 3x3 maze", () => {
@@ -70,5 +61,24 @@ describe("results for a 7x7 maze", () => {
   ];
   it("Maze 1: finishes the directions before reached the finished so returns 'Lost'", () => {
     expect(mazeRunner(maze7x7, ["N", "E", "E", "E", "E"])).toEqual("Lost");
+  });
+  it("Maze 1: goes outside the confines of the maze so returns 'Dead'", () => {
+    expect(
+      mazeRunner(maze7x7, [
+        "N",
+        "N",
+        "N",
+        "N",
+        "N",
+        "E",
+        "E",
+        "S",
+        "S",
+        "S",
+        "S",
+        "S",
+        "S",
+      ])
+    ).toEqual("Dead");
   });
 });

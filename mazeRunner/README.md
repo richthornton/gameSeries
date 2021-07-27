@@ -70,11 +70,25 @@ Steps
 - maze and directions are given as arguments
 - Return the array position of the start - find by index '2'
 
+return the position mover
+
 - Go through the direction array
 - If the instruction = N, add one to the Y position of the starting point
 - Check what this element is:
   if it's 0, you can keep going / return lost
   if it's 1, return "dead"
   if it's 3, return "finish"
+- PICK UP PONT \_ just found where the start point is CHANGE IR
 
-PICK UP PONT \_ just found where the start point is CHANGE IR
+South at end of maze go to 0
+East at end of maze go to 0
+
+North at 0 maze go to END
+West at 0 maze of maze go to END
+
+1. calculate original starting position (called startPosition)
+2. calculate new position using direction (include edge case of edge of maze)
+3. see if new position lands you on Dead, Finish, Lost
+4. if dead or finish - end and return "Dead" / "Finish"
+5. if Lost check if at end of directions, if yes return "Lost"
+6. if not at end, repeat steps 3 - 6
