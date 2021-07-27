@@ -13,23 +13,26 @@ describe("results for a 2x2 maze", () => {
     [1, 3],
     [1, 2],
   ];
-  it("moves one step East and returns 'Finish'", () => {
+  it("Maze 1: moves one step East and returns 'Finish'", () => {
     expect(mazeRunner(maze, ["E"])).toEqual("Finish");
   });
-  it("moves one step North and returns 'Dead'", () => {
+  it("Maze 1: moves one step North and returns 'Dead'", () => {
     expect(mazeRunner(maze, ["N"])).toEqual("Dead");
   });
-  it("from a different start position, moves one step North and returns 'Lost'", () => {
+  it("Maze 2: moves one step North and returns 'Lost'", () => {
     expect(mazeRunner(maze2, ["N"])).toEqual("Lost");
   });
-  it("from a different start position, moves one step West and returns 'Dead'", () => {
+  it("Maze 3: moves one step West and returns 'Dead'", () => {
     expect(mazeRunner(maze3, ["W"])).toEqual("Dead");
   });
-  it("from a different start position, moves one step East and returns 'Dead'", () => {
+  it("Maze 3: moves one step East and returns 'Dead'", () => {
     expect(mazeRunner(maze3, ["E"])).toEqual("Dead");
   });
-  it("from a different start position, moves one step South and returns 'Finish'", () => {
+  it("Maze 3: moves one step South and returns 'Finish'", () => {
     expect(mazeRunner(maze3, ["S"])).toEqual("Finish");
+  });
+  it("Maze 1: moves one step West and returns 'Finish'", () => {
+    expect(mazeRunner(maze, ["W"])).toEqual("Finish");
   });
 });
 

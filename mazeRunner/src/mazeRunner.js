@@ -25,8 +25,6 @@ const mazeRunner = (maze, direction) => {
       newJPosition = startPointJ + 1;
     }
 
-    console.log("new J", newJPosition);
-
     if (maze[startPoint[0]][newJPosition] === 0) {
       return "Lost";
     } else if (maze[startPoint[0]][newJPosition] === 1) {
@@ -38,7 +36,14 @@ const mazeRunner = (maze, direction) => {
 
   // WEST: moving one column left
   if (direction[0] === "W") {
-    newJPosition = startPointJ - 1;
+    if (startPointJ === 0) {
+      newJPosition = maze.length - 1;
+    } else {
+      newJPosition = startPointJ - 1;
+    }
+
+    console.log("new J", newJPosition);
+
     if (maze[startPoint[0]][newJPosition] === 0) {
       return "Lost";
     } else if (maze[startPoint[0]][newJPosition] === 1) {
