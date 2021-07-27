@@ -13,6 +13,10 @@ describe("results for a 2x2 maze", () => {
     [1, 3],
     [1, 2],
   ];
+  const maze4 = [
+    [1, 2],
+    [1, 3],
+  ];
   it("Maze 1: moves one step East and returns 'Finish'", () => {
     expect(mazeRunner(maze, ["E"])).toEqual("Finish");
   });
@@ -33,6 +37,9 @@ describe("results for a 2x2 maze", () => {
   });
   it("Maze 1: moves one step West and returns 'Finish'", () => {
     expect(mazeRunner(maze, ["W"])).toEqual("Finish");
+  });
+  it.only("Maze 4: moves one step North and returns 'Finish'", () => {
+    expect(mazeRunner(maze4, ["N"])).toEqual("Finish");
   });
 });
 

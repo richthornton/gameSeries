@@ -1,24 +1,30 @@
 const mazeRunner = (maze, direction) => {
   const isStartPoint = (element) => element == 2;
 
-  maze.forEach((element, index) => {
-    startPoint = [];
-    startPointJ = element.findIndex(isStartPoint);
+  // cannot use a forEach loop in this situation as have to break as soon as find 2
+
+  for (let i = 0; i < maze.length; i++) {
+    // tartPoint = [];
+    startPointJ = maze[i].findIndex(isStartPoint);
+    // console.log("row i", i);
+    // console.log("column j", startPointJ);
     if (startPointJ > -1) {
-      startPoint.push(index);
-      startPoint.push(startPointJ);
+      startPointI = i;
+      // startPoint.push(i);
+      // startPoint.push(startPointJ);
+      break;
     }
-  });
+  }
 
-  startPointI = startPoint[0];
+  // console.log(startPoint);
 
-  // startPoint[0] = 'i' position of starting point;
-  // startPoint[1] = 'j' position of starting point;
+  // startPointI = startPoint[0];
 
-  console.log(startPoint);
-
+  console.log("start i", startPointI);
+  console.log("start j", startPointJ);
   // EAST: moving one column right
   if (direction[0] === "E") {
+    // check if end of array
     if (startPointJ === maze.length - 1) {
       newJPosition = 0;
     } else {
@@ -36,13 +42,14 @@ const mazeRunner = (maze, direction) => {
 
   // WEST: moving one column left
   if (direction[0] === "W") {
+    // check if end of array
     if (startPointJ === 0) {
       newJPosition = maze.length - 1;
     } else {
       newJPosition = startPointJ - 1;
     }
 
-    console.log("new J", newJPosition);
+    // console.log("new J", newJPosition);
 
     if (maze[startPoint[0]][newJPosition] === 0) {
       return "Lost";
@@ -54,17 +61,27 @@ const mazeRunner = (maze, direction) => {
   }
   // NORTH: moving one row up
   if (direction[0] === "N") {
-    if (maze[startPoint[0] - 1][startPointJ] === 0) {
+    // check if end of array
+    if (startPointI === 0) {
+      newIPosition = maze.length - 1;
+    } else {
+      newIPosition = startPointI - 1;
+    }
+
+    console.log("new I", newIPosition);
+
+    if (maze[newIPosition][startPointJ] === 0) {
       return "Lost";
-    } else if (maze[startPoint[0] - 1][startPointJ] === 1) {
+    } else if (maze[newIPosition][startPointJ] === 1) {
       return "Dead";
-    } else if (maze[startPoint[0] - 1][startPointJ] === 3) {
+    } else if (maze[newIPosition][startPointJ] === 3) {
       return "Finish";
     }
   }
 
   // SOUTH: moving one row down
   if (direction[0] === "S") {
+    // check if end of array
     if (startPointI === maze.length - 1) {
       newIPosition = 0;
     } else {
