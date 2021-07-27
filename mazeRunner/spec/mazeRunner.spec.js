@@ -25,6 +25,9 @@ describe("results for a 2x2 maze", () => {
   it("from a different start position, moves one step West and returns 'Dead'", () => {
     expect(mazeRunner(maze3, ["W"])).toEqual("Dead");
   });
+  it("from a different start position, moves one step East and returns 'Dead'", () => {
+    expect(mazeRunner(maze3, ["E"])).toEqual("Dead");
+  });
 });
 
 // describe("results for a 3x3 maze", () => {

@@ -4,12 +4,15 @@ const mazeRunner = (maze, direction) => {
   maze.forEach((element, index) => {
     startPoint = [];
     startPointJ = element.findIndex(isStartPoint);
-
     if (startPointJ > -1) {
       startPoint.push(index);
       startPoint.push(startPointJ);
     }
   });
+
+  startJPosition = startPointJ;
+  startIPosition = startPoint[0];
+
   // startPoint[0] = 'i' position of starting point;
   // startPoint[1] = 'j' position of starting point;
 
@@ -17,22 +20,31 @@ const mazeRunner = (maze, direction) => {
 
   // EAST: moving one column right
   if (direction[0] === "E") {
-    if (maze[startPoint[0]][startPointJ + 1] === 0) {
+    if (startPointJ === maze.length - 1) {
+      newJPosition = 0;
+    } else {
+      newJPosition = startPointJ + 1;
+    }
+
+    console.log("new J", newJPosition);
+
+    if (maze[startPoint[0]][newJPosition] === 0) {
       return "Lost";
-    } else if (maze[startPoint[0]][startPointJ + 1] === 1) {
+    } else if (maze[startPoint[0]][newJPosition] === 1) {
       return "Dead";
-    } else if (maze[startPoint[0]][startPointJ + 1] === 3) {
+    } else if (maze[startPoint[0]][newJPosition] === 3) {
       return "Finish";
     }
   }
 
   // WEST: moving one column left
   if (direction[0] === "W") {
-    if (maze[startPoint[0]][startPointJ - 1] === 0) {
+    newJPosition = startPointJ - 1;
+    if (maze[startPoint[0]][newJPosition] === 0) {
       return "Lost";
-    } else if (maze[startPoint[0]][startPointJ - 1] === 1) {
+    } else if (maze[startPoint[0]][newJPosition] === 1) {
       return "Dead";
-    } else if (maze[startPoint[0]][startPointJ - 1] === 3) {
+    } else if (maze[startPoint[0]][newJPosition] === 3) {
       return "Finish";
     }
   }

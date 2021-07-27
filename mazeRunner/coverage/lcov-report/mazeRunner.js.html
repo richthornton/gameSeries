@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64.1% </span>
+                <span class="strong">71.74% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>25/39</span>
+                <span class='fraction'>33/46</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">44.12% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>15/34</span>
+                <span class='fraction'>18/36</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">63.16% </span>
+                <span class="strong">71.11% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>24/38</span>
+                <span class='fraction'>32/45</span>
             </div>
         
             
@@ -119,29 +119,52 @@
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
 <a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">14x</span>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -149,6 +172,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -187,12 +211,15 @@
   maze.forEach((element, index) =&gt; {
     startPoint = [];
     startPointJ = element.findIndex(isStartPoint);
-&nbsp;
     if (startPointJ &gt; -1) {
       startPoint.push(index);
       startPoint.push(startPointJ);
     }
   });
+&nbsp;
+  startJPosition = startPointJ;
+  startIPosition = startPoint[0];
+&nbsp;
   // startPoint[0] = 'i' position of starting point;
   // startPoint[1] = 'j' position of starting point;
 &nbsp;
@@ -200,22 +227,31 @@
 &nbsp;
   // EAST: moving one column right
   if (direction[0] === "E") {
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (maze[startPoint[0]][startPointJ + 1] === 0) {
+    if (startPointJ === maze.length - 1) {
+      newJPosition = 0;
+    } else {
+      newJPosition = startPointJ + 1;
+    }
+&nbsp;
+    console.log("new J", newJPosition);
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (maze[startPoint[0]][newJPosition] === 0) {
 <span class="cstat-no" title="statement not covered" >      return "Lost";</span>
-    } else <span class="missing-if-branch" title="if path not taken" >I</span>if (maze[startPoint[0]][startPointJ + 1] === 1) {
-<span class="cstat-no" title="statement not covered" >      return "Dead";</span>
-    } else <span class="missing-if-branch" title="else path not taken" >E</span>if (maze[startPoint[0]][startPointJ + 1] === 3) {
+    } else if (maze[startPoint[0]][newJPosition] === 1) {
+      return "Dead";
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>if (maze[startPoint[0]][newJPosition] === 3) {
       return "Finish";
     }
   }
 &nbsp;
   // WEST: moving one column left
   if (direction[0] === "W") {
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (maze[startPoint[0]][startPointJ - 1] === 0) {
+    newJPosition = startPointJ - 1;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (maze[startPoint[0]][newJPosition] === 0) {
 <span class="cstat-no" title="statement not covered" >      return "Lost";</span>
-    } else <span class="missing-if-branch" title="else path not taken" >E</span>if (maze[startPoint[0]][startPointJ - 1] === 1) {
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>if (maze[startPoint[0]][newJPosition] === 1) {
       return "Dead";
-    } else <span class="cstat-no" title="statement not covered" >if (maze[startPoint[0]][startPointJ - 1] === 3) {</span>
+    } else <span class="cstat-no" title="statement not covered" >if (maze[startPoint[0]][newJPosition] === 3) {</span>
 <span class="cstat-no" title="statement not covered" >      return "Finish";</span>
     }
   }
@@ -250,7 +286,7 @@ module.exports = mazeRunner;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Jul 27 2021 12:46:19 GMT+0100 (British Summer Time)
+                at Tue Jul 27 2021 13:04:26 GMT+0100 (British Summer Time)
             </div>
         </div>
         <script src="prettify.js"></script>
