@@ -57,3 +57,18 @@ describe("results for a 3x3 maze", () => {
     expect(mazeRunner(maze3x3, ["N", "N", "E"])).toEqual("Lost");
   });
 });
+
+describe("results for a 7x7 maze", () => {
+  const maze7x7 = [
+    [1, 1, 1, 1, 1, 1, 1],
+    [1, 0, 0, 0, 0, 0, 3],
+    [1, 0, 1, 0, 1, 0, 1],
+    [0, 0, 1, 0, 0, 0, 1],
+    [1, 0, 1, 0, 1, 0, 1],
+    [1, 0, 0, 0, 0, 0, 1],
+    [1, 2, 1, 0, 1, 0, 1],
+  ];
+  it("Maze 1: finishes the directions before reached the finished so returns 'Lost'", () => {
+    expect(mazeRunner(maze7x7, ["N", "E", "E", "E", "E"])).toEqual("Lost");
+  });
+});

@@ -1,8 +1,9 @@
-const mazeRunner = (maze, direction) => {
+const mazeRunner = (maze, directions) => {
   const isStartPoint = (element) => element == 2;
   // returns an array of original starting position
   const startingPosition = (maze) => {
     for (let i = 0; i < maze.length; i++) {
+      //console.log(Array.isArray(maze[i]));
       startPointJ = maze[i].findIndex(isStartPoint);
       if (startPointJ > -1) {
         return [i, startPointJ];
@@ -44,11 +45,11 @@ const mazeRunner = (maze, direction) => {
     }
   };
 
-  console.log("original position of the 2", startingPosition(maze));
+  //console.log("original position of the 2", startingPosition(maze));
 
   const result = (maze, position) => {
-    console.log("position in result", position);
-    console.log("maze point", maze[position[0]][position[1]]);
+    // console.log("position in result", position);
+    // console.log("maze point", maze[position[0]][position[1]]);
 
     if (maze[position[0]][position[1]] === 0) {
       return "Lost";
@@ -59,25 +60,21 @@ const mazeRunner = (maze, direction) => {
     }
   };
 
-  const isGameOver = (outcome, directionNumber) => {
-    if (outcome === "Dead" || outcome === "Finish") {
-      return outcome;
-    }
-    if (outcome === "Lost" && direction.length === directionNumber) {
-      return "Lost";
-    }
-  };
-
-  for (let i = 0; i < direction.length; i++) {
+  for (let i = 0; i < directions.length; i++) {
     if (i === 0) {
       position = startingPosition(maze);
     }
-    position = newPosition(direction[i], position);
-    console.log("position in for loop", position);
+    position = newPosition(directions[i], position);
+    //console.log("position in for loop", position);
     outcome = result(maze, position);
-    console.log("outcome at new position", outcome);
-    if (isGameOver(outcome, i + 1) != undefined) {
-      return isGameOver(outcome, i + 1);
+    //console.log("outcome at new position", outcome);
+    console.log("i", i + 1);
+    console.log("number of directions", directions.length);
+    if (outcome === "Dead" || outcome === "Finish") {
+      return outcome;
+    }
+    if (outcome === "Lost" && i + 1 === directions.length) {
+      return "Lost";
     }
   }
 };
