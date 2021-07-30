@@ -29,19 +29,14 @@ const newPosition = (direction, position) => {
 };
 
 const mazeRunner = (maze, directions) => {
-  //console.log("original position of the 2", startingPosition(maze));
-
   const result = (maze, position) => {
-    // console.log("position in result", position);
-    // console.log("maze point", maze[position[0]][position[1]]);
-    if (
-      maze[position[0]][position[1]] === 0 ||
-      maze[position[0]][position[1]] === 2
-    ) {
+    const mazePoint = maze[position[0]][position[1]];
+
+    if (mazePoint === 0 || mazePoint === 2) {
       return "Lost";
-    } else if (maze[position[0]][position[1]] === 1) {
+    } else if (mazePoint === 1) {
       return "Dead";
-    } else if (maze[position[0]][position[1]] === 3) {
+    } else if (mazePoint === 3) {
       return "Finish";
     }
   };
