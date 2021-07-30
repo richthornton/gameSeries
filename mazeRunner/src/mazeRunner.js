@@ -10,9 +10,9 @@ const startingPosition = (maze) => {
   }
 };
 
-const mazeRunner = (maze, directions) => {
-  // takes a direction (string) and position (array) and returns an array
-  const newPosition = (direction, position) => {
+// takes a direction (string) and position (tuple) and returns new position (tuple)
+const newPosition = (direction, position) => {
+  if (Array.isArray(position) && position.length === 2) {
     switch (direction) {
       case "E":
         return [position[0], position[1] + 1];
@@ -23,8 +23,12 @@ const mazeRunner = (maze, directions) => {
       case "S":
         return [position[0] + 1, position[1]];
     }
-  };
+  } else {
+    throw new Error("Position must be a tuple");
+  }
+};
 
+const mazeRunner = (maze, directions) => {
   //console.log("original position of the 2", startingPosition(maze));
 
   const result = (maze, position) => {
@@ -65,4 +69,7 @@ const mazeRunner = (maze, directions) => {
   }
 };
 
-module.exports = mazeRunner;
+module.exports = {
+  mazeRunner: mazeRunner,
+  newPosition: newPosition,
+};

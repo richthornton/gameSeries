@@ -1,4 +1,4 @@
-const mazeRunner = require("../src/mazeRunner");
+const Game = require("../src/mazeRunner");
 
 describe("results for a 2x2 maze", () => {
   const maze = [
@@ -18,22 +18,22 @@ describe("results for a 2x2 maze", () => {
     [1, 3],
   ];
   it("Maze 1: moves one step East and returns 'Finish'", () => {
-    expect(mazeRunner(maze, ["E"])).toEqual("Finish");
+    expect(Game.mazeRunner(maze, ["E"])).toEqual("Finish");
   });
   it("Maze 1: moves one step North and returns 'Dead'", () => {
-    expect(mazeRunner(maze, ["N"])).toEqual("Dead");
+    expect(Game.mazeRunner(maze, ["N"])).toEqual("Dead");
   });
   it("Maze 1: moves one step W outside the border and returns 'Dead'", () => {
-    expect(mazeRunner(maze, ["W"])).toEqual("Dead");
+    expect(Game.mazeRunner(maze, ["W"])).toEqual("Dead");
   });
   it("Maze 2: moves one step North and returns 'Lost'", () => {
-    expect(mazeRunner(maze2, ["N"])).toEqual("Lost");
+    expect(Game.mazeRunner(maze2, ["N"])).toEqual("Lost");
   });
   it("Maze 3: moves one step West and returns 'Dead'", () => {
-    expect(mazeRunner(maze3, ["W"])).toEqual("Dead");
+    expect(Game.mazeRunner(maze3, ["W"])).toEqual("Dead");
   });
   it("Maze 3: moves one step East outside the border and returns 'Dead'", () => {
-    expect(mazeRunner(maze3, ["E"])).toEqual("Dead");
+    expect(Game.mazeRunner(maze3, ["E"])).toEqual("Dead");
   });
 });
 
@@ -44,11 +44,11 @@ describe("results for a 3x3 maze", () => {
     [0, 2, 0],
   ];
   it("Maze 1: moves one step East and one step North and returns 'Finish'", () => {
-    expect(mazeRunner(maze3x3, ["E", "N"])).toEqual("Finish");
+    expect(Game.mazeRunner(maze3x3, ["E", "N"])).toEqual("Finish");
   });
 
   it("Maze 1: finishes the directions before reached the finished so returns 'Lost'", () => {
-    expect(mazeRunner(maze3x3, ["N", "N", "E"])).toEqual("Lost");
+    expect(Game.mazeRunner(maze3x3, ["N", "N", "E"])).toEqual("Lost");
   });
 });
 
@@ -63,11 +63,11 @@ describe("results for a 7x7 maze", () => {
     [1, 2, 1, 0, 1, 0, 1],
   ];
   it("Maze 1: finishes the directions before reached the finished so returns 'Lost'", () => {
-    expect(mazeRunner(maze7x7, ["N", "E", "E", "E", "E"])).toEqual("Lost");
+    expect(Game.mazeRunner(maze7x7, ["N", "E", "E", "E", "E"])).toEqual("Lost");
   });
   it("Maze 1: goes outside the confines of the maze so returns 'Dead'", () => {
     expect(
-      mazeRunner(maze7x7, [
+      Game.mazeRunner(maze7x7, [
         "N",
         "N",
         "N",
@@ -85,6 +85,12 @@ describe("results for a 7x7 maze", () => {
     ).toEqual("Dead");
   });
   it("Returns to starting point at end of directions therefore returns Lost ", () => {
-    expect(mazeRunner(maze7x7, ["N", "N", "S", "S"])).toEqual("Lost");
+    expect(Game.mazeRunner(maze7x7, ["N", "N", "S", "S"])).toEqual("Lost");
+  });
+
+  it("Raises an exception if the position is not a tuple", () => {
+    expect(() => {
+      Game.newPosition("N", [1, 4, 5]);
+    }).toThrowError("Position must be a tuple");
   });
 });
