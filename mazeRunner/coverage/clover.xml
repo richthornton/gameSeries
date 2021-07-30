@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1627658707918" clover="3.2.0">
-  <project timestamp="1627658707918" name="All files">
-    <metrics statements="35" coveredstatements="35" conditionals="32" coveredconditionals="31" methods="5" coveredmethods="5" elements="72" coveredelements="71" complexity="0" loc="35" ncloc="35" packages="1" files="1" classes="1"/>
+<coverage generated="1627661151859" clover="3.2.0">
+  <project timestamp="1627661151859" name="All files">
+    <metrics statements="38" coveredstatements="38" conditionals="30" coveredconditionals="30" methods="6" coveredmethods="6" elements="74" coveredelements="74" complexity="0" loc="38" ncloc="38" packages="1" files="1" classes="1"/>
     <file name="mazeRunner.js" path="/Users/floradavies/Projects/gameSeries/mazeRunner/src/mazeRunner.js">
-      <metrics statements="35" coveredstatements="35" conditionals="32" coveredconditionals="31" methods="5" coveredmethods="5"/>
+      <metrics statements="38" coveredstatements="38" conditionals="30" coveredconditionals="30" methods="6" coveredmethods="6"/>
       <line num="1" count="169" type="stmt"/>
       <line num="4" count="1" type="stmt"/>
       <line num="5" count="11" type="stmt"/>
@@ -18,27 +18,30 @@
       <line num="22" count="13" type="stmt"/>
       <line num="24" count="8" type="stmt"/>
       <line num="27" count="1" type="stmt"/>
-      <line num="31" count="1" type="stmt"/>
-      <line num="32" count="11" type="stmt"/>
-      <line num="33" count="30" type="stmt"/>
-      <line num="35" count="30" type="cond" truecount="4" falsecount="0"/>
+      <line num="32" count="1" type="stmt"/>
+      <line num="33" count="33" type="stmt"/>
+      <line num="35" count="32" type="cond" truecount="4" falsecount="0"/>
       <line num="36" count="26" type="stmt"/>
-      <line num="37" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="37" count="6" type="cond" truecount="2" falsecount="0"/>
       <line num="38" count="2" type="stmt"/>
-      <line num="39" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="39" count="4" type="cond" truecount="2" falsecount="0"/>
       <line num="40" count="2" type="stmt"/>
-      <line num="44" count="11" type="stmt"/>
-      <line num="45" count="33" type="cond" truecount="2" falsecount="0"/>
-      <line num="46" count="11" type="stmt"/>
-      <line num="49" count="33" type="stmt"/>
-      <line num="51" count="33" type="cond" truecount="4" falsecount="0"/>
-      <line num="52" count="3" type="stmt"/>
-      <line num="54" count="30" type="stmt"/>
-      <line num="58" count="30" type="cond" truecount="4" falsecount="0"/>
-      <line num="59" count="4" type="stmt"/>
-      <line num="61" count="26" type="cond" truecount="4" falsecount="0"/>
-      <line num="62" count="4" type="stmt"/>
-      <line num="67" count="1" type="stmt"/>
+      <line num="44" count="1" type="stmt"/>
+      <line num="45" count="33" type="cond" truecount="4" falsecount="0"/>
+      <line num="46" count="3" type="stmt"/>
+      <line num="50" count="1" type="stmt"/>
+      <line num="51" count="11" type="stmt"/>
+      <line num="52" count="11" type="stmt"/>
+      <line num="54" count="11" type="stmt"/>
+      <line num="55" count="33" type="stmt"/>
+      <line num="56" count="33" type="stmt"/>
+      <line num="60" count="33" type="stmt"/>
+      <line num="61" count="33" type="stmt"/>
+      <line num="62" count="32" type="cond" truecount="4" falsecount="0"/>
+      <line num="63" count="4" type="stmt"/>
+      <line num="65" count="28" type="cond" truecount="4" falsecount="0"/>
+      <line num="66" count="4" type="stmt"/>
+      <line num="71" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>

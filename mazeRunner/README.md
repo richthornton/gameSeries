@@ -98,3 +98,9 @@ West at 0 maze of maze go to END
 - remove console.logs
 
 Let's try moving these functions out from inside the mazeRunner function to just being standalone functions. Having functions nested like this can potentially lead to some issues where there's a variable in the outer scope that's shadowed in the inner scope. More concretely, in this case you have maze as a parameter to the startingPosition function, but also as a parameter to the mazeRunner function. You could get in issues with knowing which maze is being referred to in this function
+
+const isOutOfBounds = (maze, position) => {
+if (position.includes(maze.length) || position.includes(-1)) {
+return "Dead";
+}
+};

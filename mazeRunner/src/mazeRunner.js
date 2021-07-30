@@ -28,43 +28,44 @@ const newPosition = (direction, position) => {
   }
 };
 
-const mazeRunner = (maze, directions) => {
-  const result = (maze, position) => {
-    const mazePoint = maze[position[0]][position[1]];
+// calculates the outcome of the maze position
+const result = (maze, position) => {
+  const mazePoint = maze[position[0]][position[1]];
 
-    if (mazePoint === 0 || mazePoint === 2) {
-      return "Lost";
-    } else if (mazePoint === 1) {
-      return "Dead";
-    } else if (mazePoint === 3) {
-      return "Finish";
-    }
-  };
+  if (mazePoint === 0 || mazePoint === 2) {
+    return "Lost";
+  } else if (mazePoint === 1) {
+    return "Dead";
+  } else if (mazePoint === 3) {
+    return "Finish";
+  }
+};
 
-  for (let i = 0; i < directions.length; i++) {
-    if (i === 0) {
-      position = startingPosition(maze);
-    }
+const completeMaze = (maze, directions) => {
+  let position = startingPosition(maze);
+  let moveNumber = 0;
 
-    position = newPosition(directions[i], position);
-    //console.log("position in for loop", position);
+  for (const direction of directions) {
+    position = newPosition(direction, position);
+    moveNumber++;
+
+    // checks to see if out of bounds
     if (position.includes(maze.length) || position.includes(-1)) {
       return "Dead";
     }
-    outcome = result(maze, position);
-    //console.log("outcome at new position", outcome);
-    // console.log("i", i + 1);
-    // console.log("number of directions", directions.length);
+
+    let outcome = result(maze, position);
+
     if (outcome === "Dead" || outcome === "Finish") {
       return outcome;
     }
-    if (outcome === "Lost" && i + 1 === directions.length) {
+    if (outcome === "Lost" && moveNumber === directions.length) {
       return "Lost";
     }
   }
 };
 
 module.exports = {
-  mazeRunner: mazeRunner,
+  completeMaze: completeMaze,
   newPosition: newPosition,
 };
