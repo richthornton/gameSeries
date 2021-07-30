@@ -1,16 +1,16 @@
-const mazeRunner = (maze, directions) => {
-  const isStartPoint = (element) => element == 2;
-  // returns an array of original starting position
-  const startingPosition = (maze) => {
-    for (let i = 0; i < maze.length; i++) {
-      //console.log(Array.isArray(maze[i]));
-      startPointJ = maze[i].findIndex(isStartPoint);
-      if (startPointJ > -1) {
-        return [i, startPointJ];
-      }
-    }
-  };
+const isStartPoint = (element) => element == 2;
 
+// returns the position in the maze in the form of a tuple
+const startingPosition = (maze) => {
+  for (let i = 0; i < maze.length; i++) {
+    startPointJ = maze[i].findIndex(isStartPoint);
+    if (startPointJ > -1) {
+      return [i, startPointJ];
+    }
+  }
+};
+
+const mazeRunner = (maze, directions) => {
   // takes a direction (string) and position (array) and returns an array
   const newPosition = (direction, position) => {
     switch (direction) {
