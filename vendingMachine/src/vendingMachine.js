@@ -45,7 +45,7 @@ class VendingMachine {
 
     // correct money therefore change quantity in stock and decrease money
     selectedItem.quantity--;
-    this.float -= money;
+    this.float += selectedItem.price;
 
     let change = this.calculateChange(selectedItem.price, money);
 
