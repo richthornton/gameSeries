@@ -7,7 +7,6 @@ class Maze {
 
   // returns the position in the maze in the form of a tuple
   startingPosition = () => {
-    //console.log(this.maze[0]);
     for (const point of this.maze) {
       let startPointJ = point.findIndex(this.isStartPoint);
       if (startPointJ > -1) {
@@ -37,7 +36,6 @@ class Maze {
   // calculates the outcome at the maze position
   result = (position) => {
     const mazePoint = this.maze[position[0]][position[1]];
-    console.log("mazepoint", mazePoint);
 
     if (mazePoint === 0 || mazePoint === 2) {
       return "Lost";
@@ -51,29 +49,20 @@ class Maze {
   attemptWith = (directions) => {
     let position = this.startingPosition();
     let moveNumber = 0;
+
     for (const direction of directions) {
-      console.log("first position", position);
-
       position = this.newPosition(direction, position);
-
+      moveNumber++;
       if (position.includes(this.maze.length) || position.includes(-1)) {
         return "Dead";
       }
-
       let outcome = this.result(position);
-      console.log("outcome", outcome);
-
-      moveNumber++;
 
       if (outcome === "Dead" || outcome === "Finish") {
         return outcome;
       } else if (outcome === "Lost" && moveNumber === directions.length) {
         return "Lost";
       }
-
-      console.log("number of directions", directions.length);
-      console.log("movenumber", moveNumber);
-      console.log("next position", position);
     }
   };
 }
