@@ -20,10 +20,13 @@ class VendingMachine {
   vend(itemCode, money) {
     let selectedItem = this.findItem(itemCode);
 
+    // incorrect money given
     if (selectedItem.price > money) {
       return "Not enough money!";
     }
 
+    // correct money therefore change quantity in stock
+    selectedItem.quantity--;
     if (selectedItem.price < money) {
       let change = (money - selectedItem.price).toFixed(2);
       return `Vending ${selectedItem.name} with ${change} change`;

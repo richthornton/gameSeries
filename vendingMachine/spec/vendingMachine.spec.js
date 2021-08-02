@@ -1,7 +1,9 @@
 const Machine = require("../src/vendingMachine");
 
 describe("The Vending Machine", () => {
-  const vendingMachine = new Machine();
+  beforeEach(() => {
+    return (vendingMachine = new Machine());
+  });
 
   it("returns the correct item when correct item code and money is given", () => {
     expect(vendingMachine.vend("A01", 0.6)).toEqual("Vending Smarties");
@@ -15,5 +17,10 @@ describe("The Vending Machine", () => {
     expect(vendingMachine.vend("A01", 1.0)).toEqual(
       "Vending Smarties with 0.40 change"
     );
+  });
+
+  it("changes the item quantity by 1 when successfully selected", () => {
+    vendingMachine.vend("A01", 0.6);
+    expect(vendingMachine.stock[0].quantity).toEqual(9);
   });
 });
