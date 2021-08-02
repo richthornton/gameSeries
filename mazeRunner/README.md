@@ -104,3 +104,14 @@ if (position.includes(maze.length) || position.includes(-1)) {
 return "Dead";
 }
 };
+
+NOTES to edit!
+
+doesn't make sense to give the directions to each new Maze
+
+you make a maze and then you attempt it with different set of directions.
+But what is a good name for it?!
+
+this could turn into a photographic memory game
+
+flashes up a quiz you have to put in your directions and see if you win
