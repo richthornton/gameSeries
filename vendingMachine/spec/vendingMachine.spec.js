@@ -30,4 +30,10 @@ describe("The Vending Machine", () => {
       "Dairy Milk: Out of stock!"
     );
   });
+
+  it("return invalid selection and money in vending machine to 2dp, if invalid code given", () => {
+    expect(vendingMachine.vend("Z01", 0.6)).toEqual(
+      "Invalid Selection! : Money in vending machine = 10.00"
+    );
+  });
 });
