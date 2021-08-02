@@ -30,12 +30,15 @@ class VendingMachine {
       return "Not enough money!";
     }
 
+    if (selectedItem.quantity === 0) {
+      return `${selectedItem.name}: Out of stock!`;
+    }
+
     // correct money therefore change quantity in stock
     selectedItem.quantity--;
 
     let change = this.calculateChange(selectedItem.price, money);
 
-    console.log(change);
     if (change > 0.0) {
       return `Vending ${selectedItem.name} with ${change} change`;
     } else {

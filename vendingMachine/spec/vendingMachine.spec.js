@@ -23,4 +23,11 @@ describe("The Vending Machine", () => {
     vendingMachine.vend("A01", 0.6);
     expect(vendingMachine.stock[0].quantity).toEqual(9);
   });
+
+  it("it returns out of stock if item out of stock", () => {
+    vendingMachine.vend("A03", 0.65);
+    expect(vendingMachine.vend("A03", 0.65)).toEqual(
+      "Dairy Milk: Out of stock!"
+    );
+  });
 });
