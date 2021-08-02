@@ -10,4 +10,10 @@ describe("The Vending Machine", () => {
   it("returns 'Not enough money!' when money input is less than price of item", () => {
     expect(vendingMachine.vend("A01", 0.5)).toEqual("Not enough money!");
   });
+
+  it("if too much money given, it returns item and change to 2dp", () => {
+    expect(vendingMachine.vend("A01", 1.0)).toEqual(
+      "Vending Smarties with 0.40 change"
+    );
+  });
 });

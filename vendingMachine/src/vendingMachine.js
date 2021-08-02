@@ -24,6 +24,11 @@ class VendingMachine {
       return "Not enough money!";
     }
 
+    if (selectedItem.price < money) {
+      let change = (money - selectedItem.price).toFixed(2);
+      return `Vending ${selectedItem.name} with ${change} change`;
+    }
+
     return `Vending ${selectedItem.name}`;
   }
 }
