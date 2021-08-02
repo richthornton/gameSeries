@@ -7,7 +7,7 @@ describe("The Vending Machine", () => {
     expect(vendingMachine.vend("A01", 0.6)).toEqual("Vending Smarties");
   });
 
-  xit("returns 'Not enough money!' when money input is less than price of item", () => {
-    expect(vendingMachine.vend()).toEqual();
+  it("returns 'Not enough money!' when money input is less than price of item", () => {
+    expect(vendingMachine.vend("A01", 0.5)).toEqual("Not enough money!");
   });
 });

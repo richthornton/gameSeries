@@ -10,10 +10,15 @@ class VendingMachine {
     this.stock = stock;
   }
 
-  vend(itemCode) {
+  vend(itemCode, money) {
     let chosenItem = this.stock.find((item) => {
       return item.code === itemCode;
     });
+
+    if (chosenItem.price > money) {
+      return "Not enough money!";
+    }
+
     return `Vending ${chosenItem.name}`;
   }
 }
