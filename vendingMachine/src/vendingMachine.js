@@ -17,6 +17,11 @@ class VendingMachine {
     return item;
   }
 
+  calculateChange(itemPrice, money) {
+    let change = (money - itemPrice).toFixed(2);
+    return change;
+  }
+
   vend(itemCode, money) {
     let selectedItem = this.findItem(itemCode);
 
@@ -27,12 +32,15 @@ class VendingMachine {
 
     // correct money therefore change quantity in stock
     selectedItem.quantity--;
-    if (selectedItem.price < money) {
-      let change = (money - selectedItem.price).toFixed(2);
-      return `Vending ${selectedItem.name} with ${change} change`;
-    }
 
-    return `Vending ${selectedItem.name}`;
+    let change = this.calculateChange(selectedItem.price, money);
+
+    console.log(change);
+    if (change > 0.0) {
+      return `Vending ${selectedItem.name} with ${change} change`;
+    } else {
+      return `Vending ${selectedItem.name}`;
+    }
   }
 }
 
