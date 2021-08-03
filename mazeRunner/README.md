@@ -47,14 +47,14 @@ For the Maze (let it be maze) at the top with those starting points:
 | [[1,0],
    [2,3]], ["E"] | "Finish" |
 | [[0,0,3],
-   [2,1,0]
-   [0,1,2]], ["W"] | "Dead" |  
+   [0,1,0],
+   [2,1,0]], ["W"] | "Lost" |  
 | [[0,0,3],
-   [2,1,0]
-   [0,1,2]], ["N","E"] | "Lost" |  
+   [0,1,0],
+   [2,1,0]], ["N","N"] | "Lost" |  
 | [[0,0,3],
-   [2,1,0]
-   [0,1,2]], ["W"] | "Lost" |  
+   [0,1,0],
+   [2,1,0]], ["W"] | "Lost" |  
 | maze, ["N"] | "Lost" |
 | maze, ["E"] | "Dead" |
 | maze, ["N","N","N","N","N","E","E","E","E","E"] | "Finish" |
@@ -69,3 +69,49 @@ Steps
 
 - maze and directions are given as arguments
 - Return the array position of the start - find by index '2'
+
+return the position mover
+
+- Go through the direction array
+- If the instruction = N, add one to the Y position of the starting point
+- Check what this element is:
+  if it's 0, you can keep going / return lost
+  if it's 1, return "dead"
+  if it's 3, return "finish"
+- PICK UP PONT \_ just found where the start point is CHANGE IR
+
+South at end of maze go to 0
+East at end of maze go to 0
+
+North at 0 maze go to END
+West at 0 maze of maze go to END
+
+1. calculate original starting position (called startPosition)
+2. calculate new position using direction (include edge case of edge of maze)
+3. see if new position lands you on Dead, Finish, Lost
+4. if dead or finish - end and return "Dead" / "Finish"
+5. if Lost check if at end of directions, if yes return "Lost"
+6. if not at end, repeat steps 3 - 6
+
+### Review comments
+
+- remove console.logs
+
+Let's try moving these functions out from inside the mazeRunner function to just being standalone functions. Having functions nested like this can potentially lead to some issues where there's a variable in the outer scope that's shadowed in the inner scope. More concretely, in this case you have maze as a parameter to the startingPosition function, but also as a parameter to the mazeRunner function. You could get in issues with knowing which maze is being referred to in this function
+
+const isOutOfBounds = (maze, position) => {
+if (position.includes(maze.length) || position.includes(-1)) {
+return "Dead";
+}
+};
+
+NOTES to edit!
+
+doesn't make sense to give the directions to each new Maze
+
+you make a maze and then you attempt it with different set of directions.
+But what is a good name for it?!
+
+this could turn into a photographic memory game
+
+flashes up a quiz you have to put in your directions and see if you win
